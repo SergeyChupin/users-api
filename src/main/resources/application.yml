@@ -1,0 +1,16 @@
+database:
+  name: users
+  host: 127.0.0.1
+  port: 5432
+  username: postgres
+  password: admin
+
+spring:
+  jackson:
+    default-property-inclusion: non_null
+  datasource:
+    url: jdbc:${spring.datasource.platform}://${database.host}:${database.port}/${database.name}
+    username: ${database.username}
+    password: ${database.password}
+    platform: postgresql
+    initialization-mode: always
